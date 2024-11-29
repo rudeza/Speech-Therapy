@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Correct the path to the static folder using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Link to external CSS for styling -->
+    <title>Speech Diagnosis App</title>
+</head>
+<body>
+    <!-- Main Section -->
+    <section class="slider-main">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo"></a>
+            </div>
+            
+            <!-- Slider Content -->
+            <div class="slider-content-wrap">                
+                <div class="slider-content">
+                    <h2 class="heading-style-2">Speech Diagnosis App</h2>
+                    <p>Upload your audio file to analyze speech patterns and diagnose stammering.</p>
+                </div>               
+            </div>         
+        </div>
+        
+        <!-- Slider Images -->
+        <div class="slider-images">       
+            <img class="slider-image" src="{{ url_for('static', filename='img/1.png') }}" alt="headphone image">        
+            <img class="slider-image" src="{{ url_for('static', filename='img/2.png') }}" alt="headphone image">        
+            <img class="slider-image" src="{{ url_for('static', filename='img/3.png') }}" alt="headphone image">        
+            <img class="slider-image" src="{{ url_for('static', filename='img/4.png') }}" alt="headphone image">        
+            <img class="slider-image" src="{{ url_for('static', filename='img/5.png') }}" alt="headphone image">        
+        </div> 
+        
+        <!-- Backgrounds -->
+        <div id="backgrounds">
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #D1E4F6 0%, #5F9CCF 100%);"></div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #f0b2ff 0%, #ed6eed 100%);"></div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #C7F6D0 0%, #7CB686 92.19%);"></div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #D7D7D7 0%, #edad86 100%);"></div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #6B6B6B 0%, #292929 100%);"></div>
+        </div>
+    </section>   
+    
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="form-container">
+            <form action="/upload_audio" method="post" enctype="multipart/form-data">
+                <label for="user_id">User ID:</label>
+                <input type="number" id="user_id" name="user_id" value="1" required><br><br>
+                
+                <label for="audio">Upload Audio File:</label>
+                <input type="file" id="audio" name="audio" accept="audio/*" required><br><br>
+                
+                <button type="submit" class="upload-button">Upload and Analyze</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Corrected the path for JS file -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script> <!-- Link to external JavaScript -->
+</body>
+</html>
